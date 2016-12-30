@@ -12,27 +12,25 @@ import com.badlogic.gdx.scenes.scene2d.Actor
 import com.github.yyyank.libgdx.domain.Position
 
 
-class Text (val value : String, val fontSize : Int, val pos : Position, val rgba: Color = Color.BLACK) : Actor() {
+class Text(val value: String, val fontSize: Int, val pos: Position, val rgba: Color = Color.BLACK) : Actor() {
 
 
-     val font : BitmapFont
-     val upperAlphabet : String = "ABCDEFGHIJKLMNOPQRSTUVWXYZＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ"
-     val lowerAlphabet : String = "abcdefghijklmnopqrstuvwxyzａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ"
-     val kanji : String = "得点審議中名入退室"
-     val hiragana : String = "あいうえお" + "かきくけこ" + "さしすせそ" + "たちつてと" +
-             "なにぬねの" + "はひふへほ" + "まみむめも" + "やゆよ"+ "らりるれろ" + "わをん" +
-             "がぎぐげご" + "ざじずぜぞ" + "だぢづでど" + "ばびぶべぼ" +
-             "ぱぴぷぺぽ" + "ぁぃぅぇぉゃゅょ"
-     val katakana : String = "アイウエオ" + "カキクケコ" +
-             "サシスセソ" + "タチツテト" + "ナニヌネノ" + "ハヒフヘホ" +
-             "マミムメモ" + "ヤユヨ" + "ラリルレロ" + "ワヲン" +
-             "ガギグゲゴ" + "ザジズゼゾ" + "ダヂヅデド" + "バビブベボ" +
-             "パピプペポ" + "ヤユヨ" + "ァィゥェォャュョ"
-     val numeric : String = "1234567890"
-     val symbol = "!?！？・ー[]"
-     val characters = "$upperAlphabet$lowerAlphabet$hiragana$katakana$kanji$numeric$symbol"
-
-
+    val font: BitmapFont
+    val upperAlphabet: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ"
+    val lowerAlphabet: String = "abcdefghijklmnopqrstuvwxyzａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ"
+    val kanji: String = "得点審議中名入退室"
+    val hiragana: String = "あいうえお" + "かきくけこ" + "さしすせそ" + "たちつてと" +
+            "なにぬねの" + "はひふへほ" + "まみむめも" + "やゆよ" + "らりるれろ" + "わをん" +
+            "がぎぐげご" + "ざじずぜぞ" + "だぢづでど" + "ばびぶべぼ" +
+            "ぱぴぷぺぽ" + "ぁぃぅぇぉゃゅょ"
+    val katakana: String = "アイウエオ" + "カキクケコ" +
+            "サシスセソ" + "タチツテト" + "ナニヌネノ" + "ハヒフヘホ" +
+            "マミムメモ" + "ヤユヨ" + "ラリルレロ" + "ワヲン" +
+            "ガギグゲゴ" + "ザジズゼゾ" + "ダヂヅデド" + "バビブベボ" +
+            "パピプペポ" + "ヤユヨ" + "ァィゥェォャュョ"
+    val numeric: String = "1234567890"
+    val symbol = "!?！？・ー[]"
+    val characters = "$upperAlphabet$lowerAlphabet$hiragana$katakana$kanji$numeric$symbol"
 
 
     init {

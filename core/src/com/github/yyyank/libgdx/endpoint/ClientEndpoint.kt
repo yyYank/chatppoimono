@@ -1,9 +1,7 @@
 package com.github.yyYank.libgdx.endpoint
 
-import javax.websocket.*
-import javax.websocket.MessageHandler.Whole
-import java.io.IOException
 import java.util.concurrent.TimeUnit
+import javax.websocket.*
 import javax.websocket.ClientEndpoint
 
 
@@ -11,7 +9,7 @@ import javax.websocket.ClientEndpoint
  * Created by yy_yank on 2016/12/29.
  */
 @ClientEndpoint
-class ClientEndpoint(val message : String) {
+class ClientEndpoint(val message: String) {
 
     @OnOpen
     fun onOpen(session: Session, config: EndpointConfig) {

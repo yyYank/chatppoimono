@@ -1,12 +1,9 @@
 package com.github.yyyank.libgdx
 
+import com.badlogic.gdx.scenes.scene2d.Actor
 import com.badlogic.gdx.scenes.scene2d.EventListener
 import com.badlogic.gdx.scenes.scene2d.Stage
 import com.github.yyyank.libgdx.domain.Position
-import com.badlogic.gdx.scenes.scene2d.Actor
-
-
-
 
 
 /**

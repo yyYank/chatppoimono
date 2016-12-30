@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion
 import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.scenes.scene2d.actions.Actions
 import com.badlogic.gdx.utils.Array
-import com.github.yyyank.libgdx.ChatApplication
 
 /**
  * Created by yy_yank on 2016/10/16.

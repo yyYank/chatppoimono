@@ -12,28 +12,27 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button
 import com.badlogic.gdx.scenes.scene2d.ui.Image
 import com.badlogic.gdx.scenes.scene2d.ui.Skin
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
+import com.github.yyyank.libgdx.AssetInitializer
 import com.github.yyyank.libgdx.ChatApplication
 import com.github.yyyank.libgdx.Logger
-import com.github.yyyank.libgdx.widget.Text
 import com.github.yyyank.libgdx.domain.Position
 import com.github.yyyank.libgdx.register
-import com.github.yyyank.libgdx.AssetInitializer
-import com.sun.deploy.util.SessionState
+import com.github.yyyank.libgdx.widget.Text
 import org.glassfish.tyrus.client.ClientManager
 import java.net.URI
-import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicInteger
 import javax.websocket.*
+
 /**
  * Created by yy_yank on 2016/12/29.
  */
-class ChatScene(chatApplication : ChatApplication, am : AssetManager)  : ScreenAdapter() {
+class ChatScene(chatApplication: ChatApplication, am: AssetManager) : ScreenAdapter() {
 
     val stage: Stage
     val skin: Skin = chatApplication.config.skin
     val client = ClientManager.createClient()
-    val clientEndpoint : ClientEndpoint
-    var session : Session? = null
+    val clientEndpoint: ClientEndpoint
+    var session: Session? = null
 
 
     init {
@@ -50,7 +49,7 @@ class ChatScene(chatApplication : ChatApplication, am : AssetManager)  : ScreenA
         stage.register(chatButton, Position(80f, 0f),
                 object : ClickListener() {
                     override fun clicked(event: InputEvent, x: Float, y: Float) {
-                        Gdx.input.getTextInput(object :Input.TextInputListener{
+                        Gdx.input.getTextInput(object : Input.TextInputListener {
                             override fun input(text: String?) {
                                 Gdx.app.postRunnable(Runnable {
                                     client.run {
@@ -58,6 +57,7 @@ class ChatScene(chatApplication : ChatApplication, am : AssetManager)  : ScreenA
                                     }
                                 })
                             }
+
                             override fun canceled() {
                             }
                         }, "チャットメッセージ送信", "", "")
@@ -82,7 +82,7 @@ class ChatScene(chatApplication : ChatApplication, am : AssetManager)  : ScreenA
     override fun show() {
         Logger.debug("${this.javaClass.name} show")
         Gdx.input.inputProcessor = stage
-        Gdx.input.getTextInput(object :Input.TextInputListener{
+        Gdx.input.getTextInput(object : Input.TextInputListener {
             override fun input(text: String?) {
                 Gdx.app.postRunnable(Runnable {
                     // ユーザー名
@@ -93,6 +93,7 @@ class ChatScene(chatApplication : ChatApplication, am : AssetManager)  : ScreenA
                     }
                 })
             }
+
             override fun canceled() {
             }
         }, "ユーザー名を決める", "", "")
@@ -120,8 +121,8 @@ class ChatScene(chatApplication : ChatApplication, am : AssetManager)  : ScreenA
 }
 
 @javax.websocket.ClientEndpoint
-class ClientEndpoint(val stage : Stage, val scene : ChatScene) {
-    var textObject : Text? = null
+class ClientEndpoint(val stage: Stage, val scene: ChatScene) {
+    var textObject: Text? = null
     val offsetY = AtomicInteger(490)
 
     @OnOpen

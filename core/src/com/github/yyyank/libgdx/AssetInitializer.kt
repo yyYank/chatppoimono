@@ -2,15 +2,10 @@ package com.github.yyyank.libgdx
 
 import com.badlogic.gdx.assets.AssetDescriptor
 import com.badlogic.gdx.assets.AssetManager
-import com.badlogic.gdx.assets.loaders.BitmapFontLoader
 import com.badlogic.gdx.assets.loaders.TextureLoader
-import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.Texture
-import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.scenes.scene2d.ui.Button
-import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.badlogic.gdx.scenes.scene2d.ui.Skin
-import java.util.concurrent.TimeUnit
 
 /**
  * Created by yy_yank on 2016/10/17.
