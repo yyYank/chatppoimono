@@ -9,3 +9,11 @@ sourceSets.main.java.srcDirs = [ "src/" ]
 eclipse.project {
     name = appName + "-core"
 }
+
+task server(dependsOn: classes,  type: JavaExec) {
+    main = "com.github.yyYank.main.Main"
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    ignoreExitValue = true
+}
+
