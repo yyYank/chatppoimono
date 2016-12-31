@@ -1,7 +1,8 @@
 package com.github.yyYank.libgdx.endpoint
 
 
-import java.util.concurrent.CopyOnWriteArrayList
+import com.github.yyyank.libgdx.Logger
+import java.util.concurrent.CopyOnWriteArraySet
 import javax.websocket.*
 import javax.websocket.server.PathParam
 import javax.websocket.server.ServerEndpoint
@@ -14,15 +15,13 @@ import javax.websocket.server.ServerEndpoint
 class ServerEndPoint {
 
     companion object {
-        private val sessions = CopyOnWriteArrayList<Session>()
+        private val sessions = CopyOnWriteArraySet<Session>()
     }
 
 
     @OnOpen
     fun onOpen(@PathParam("guest-id") guestId: String, session: Session) {
-
         println("server-[open] $guestId")
-        println("sessions.size - ${sessions.size}")
         sessions.add(session)
         for (s in sessions) {
             s.asyncRemote.sendText("${guestId}さんが入室しました")
@@ -34,7 +33,6 @@ class ServerEndPoint {
         println("server-[message][$message] $session")
         // broadcast
         for (s in sessions) {
-            println("requestURI" + s.requestURI.toString())
             s.asyncRemote.sendText("[$guestId] $message")
         }
     }
@@ -52,6 +50,6 @@ class ServerEndPoint {
 
     @OnError
     fun onError(session: Session, t: Throwable) {
-        println("server-[error] " + session)
+        println("server-[error] " + t.message)
     }
 }

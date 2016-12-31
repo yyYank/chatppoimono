@@ -3,14 +3,14 @@ apply plugin: "java"
 sourceCompatibility = 1.6
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
-sourceSets.main.java.srcDirs = [ "src/" ]
+sourceSets.main.java.srcDirs = ["src/"]
 
 
 eclipse.project {
     name = appName + "-core"
 }
 
-task server(dependsOn: classes,  type: JavaExec) {
+task server(dependsOn: classes, type: JavaExec) {
     main = "com.github.yyYank.main.Main"
     classpath = sourceSets.main.runtimeClasspath
     standardInput = System.in

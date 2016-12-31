@@ -4,7 +4,7 @@
 
 ## What is this?
 
-ChatApplication written by Kotlin.
+ChatApplication written in Kotlin.
 
 * WebSocket(Tyrus)
 * libGDX

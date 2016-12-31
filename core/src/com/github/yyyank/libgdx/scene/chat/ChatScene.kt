@@ -52,9 +52,7 @@ class ChatScene(chatApplication: ChatApplication, am: AssetManager) : ScreenAdap
                         Gdx.input.getTextInput(object : Input.TextInputListener {
                             override fun input(text: String?) {
                                 Gdx.app.postRunnable(Runnable {
-                                    client.run {
-                                        session?.asyncRemote?.sendText(text)
-                                    }
+                                    session?.asyncRemote?.sendText(text)
                                 })
                             }
 
@@ -122,34 +120,34 @@ class ChatScene(chatApplication: ChatApplication, am: AssetManager) : ScreenAdap
 
 @javax.websocket.ClientEndpoint
 class ClientEndpoint(val stage: Stage, val scene: ChatScene) {
-    var textObject: Text? = null
-    val offsetY = AtomicInteger(490)
+    val defaultOffsetY = 490
+    val offsetY = AtomicInteger(defaultOffsetY)
+    val textHeight = 22
 
     @OnOpen
     fun onOpen(session: Session, config: EndpointConfig) {
-        println("client-[open] " + session)
+        Logger.debug("client-[open] " + session)
         scene.session = session
     }
 
     @OnMessage
     fun onMessage(message: String, session: Session) {
         scene.session = session
-        println("client-[message][$message] $session")
-        println("----------")
+        Logger.debug("client-[message][$message] $session")
+        Logger.debug("----------")
         Gdx.app.postRunnable {
-//            textObject?.isVisible = false
-            textObject = Text(message, 20, Position(0f, offsetY.addAndGet(-22).toFloat()))
-            stage.register(textObject!!)
+            val textObject = Text(message, 20, Position(0f, offsetY.addAndGet(-textHeight).toFloat()))
+            stage.register(textObject)
         }
     }
 
     @OnClose
     fun onClose(session: Session) {
-        println("client-[close] $session")
+        Logger.debug("client-[close] $session")
     }
 
     @OnError
     fun onError(session: Session?, t: Throwable?) {
-        println("client-[error] ${t?.message} $session")
+        Logger.debug("client-[error] ${t?.message} $session")
     }
 }
